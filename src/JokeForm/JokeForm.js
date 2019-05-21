@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './JokeForm.css';
 
 export default class JokeForm extends Component {
   constructor(props) {
@@ -34,7 +35,7 @@ export default class JokeForm extends Component {
         <br/>
         <input name="joke" value={this.state.joke} onChange={this.handleChange} placeholder="Enter joke"/>
         <br/>
-        <button>Add New Joke</button>
+        <button className='submit-form-button'>Add New Joke</button>
       </form>
     )
   }

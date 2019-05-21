@@ -19,6 +19,10 @@
   color: white;
 }
 
+.header{
+  text-align: center;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -30,4 +34,37 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.joke-list{
+  text-align: center;
+}
+
+.form-column{
+  top: 100px;
+}
+
+.all-jokes-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
 }

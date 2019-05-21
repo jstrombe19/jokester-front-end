@@ -42,7 +42,7 @@ class App extends React.Component {
 
   addNewCleanSingleJoke = cleanSingleJoke => {
     const { single } = this.state.cleanJokes;
-    const newCleanSingleJoke = {...cleanSingleJoke, id: Date.now() };
+    const newCleanSingleJoke = { ...cleanSingleJoke, id: Date.now() };
     const cleanSingleJokeList = [...single, newCleanSingleJoke];
     this.setState({
       cleanJokes: {
@@ -54,12 +54,28 @@ class App extends React.Component {
   render() {
     const { single } = this.state.cleanJokes;
     return (
-      <div className="App">
-        <img src='' alt='' />
-        <h1>Jokester</h1>
-        <br/>
-        <JokeForm addNewCleanSingleJoke={this.addNewCleanSingleJoke} />
-        <JokeList cleanSingleJokes={single} />
+      <div>
+        <header className='header'>
+        <div>
+            <img src='https://cdn1.iconfinder.com/data/icons/celebration-party-11/64/clown-funny-party-circus-joker-128.png' alt='' />
+            <h1>Jokester</h1>
+            <button className='all-jokes-button'>Tell Me a Joke</button>
+          </div>
+
+        </header>
+        <div className="App row">
+          <div className="column">
+            <JokeForm addNewCleanSingleJoke={this.addNewCleanSingleJoke} />
+          </div>
+          
+          <div className='column'>
+            <button className='all-jokes-button'>All Jokes</button>
+          </div>
+
+        </div>
+        <div className='joke-list'>
+          <JokeList cleanSingleJokes={single} />
+        </div>
       </div>
     );
   }
