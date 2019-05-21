@@ -55,7 +55,8 @@ class App extends React.Component {
     const { single } = this.state.cleanJokes;
     return (
       <div className="App">
-        <h1>HI</h1>
+        <img src='' alt='' />
+        <h1>Jokester</h1>
         <br/>
         <JokeForm addNewCleanSingleJoke={this.addNewCleanSingleJoke} />
         <JokeList cleanSingleJokes={single} />

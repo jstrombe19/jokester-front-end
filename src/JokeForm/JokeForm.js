@@ -31,7 +31,9 @@ export default class JokeForm extends Component {
     return(
       <form className="newjokeform" onSubmit={this.handleSubmit}>
         <input name="category" value={this.state.category} onChange={this.handleChange} placeholder="Enter joke category"/>
+        <br/>
         <input name="joke" value={this.state.joke} onChange={this.handleChange} placeholder="Enter joke"/>
+        <br/>
         <button>Add New Joke</button>
       </form>
     )
