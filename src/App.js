@@ -51,6 +51,21 @@ class App extends React.Component {
     });
   }
 
+  handleRandomJoke = () => {
+    const { single } = this.state.cleanJokes;  
+    const randomIndex = Math.floor(Math.random() * single.length)
+    
+    this.setState({
+      cleanJokes: {
+        single: single[randomIndex]
+      }
+    });
+  }
+
+  handleAllJokes = () => {
+
+  }
+
   render() {
     const { single } = this.state.cleanJokes;
     return (
@@ -59,7 +74,7 @@ class App extends React.Component {
         <div>
             <img src='https://cdn1.iconfinder.com/data/icons/celebration-party-11/64/clown-funny-party-circus-joker-128.png' alt='' />
             <h1>Jokester</h1>
-            <button className='all-jokes-button'>Tell Me a Joke</button>
+            <button className='all-jokes-button' onClick={this.handleRandomJoke}>Tell Me a Joke</button>
           </div>
 
         </header>
@@ -69,7 +84,7 @@ class App extends React.Component {
           </div>
           
           <div className='column'>
-            <button className='all-jokes-button'>All Jokes</button>
+            <button className='all-jokes-button' onClick={this.handleAllJokes}>All Jokes</button>
           </div>
 
         </div>
