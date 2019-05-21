@@ -1,26 +1,68 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import JokeList from './JokeList/JokeList.js';
+import JokeForm from './JokeForm/JokeForm.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      dirtyJokes: {
+        single: [],
+        double: []
+      },
+      cleanJokes: {
+        single: [{
+          category: "Black Adder",
+          id: 1,
+          type: "single",
+          joke: "My dog has no nose. \n How does he smell? \n Awful!"
+        }],
+        double: []
+      }
+    }
+  }
+
+  // async componentDidMount() {
+  //   const singleCleanResponse = await fetch('URLGOESHERE');
+  //   const singleCleanJokes = await singleCleanResponse.json();
+  //   this.setState({ cleanJokes.single: singleCleanJokes });
+  //   const doubleCleanResponse = await fetch('URLGOESHERE');
+  //   const doubleCleanJokes = await doubleCleanResponse.json();
+  //   this.setState({ cleanJokes.double: doubleCleanJokes });
+  //
+  //   const singleDirtyResponse = await fetch('URLGOESHERE');
+  //   const singleDirtyJokes = await singleDirtyResponse.json();
+  //   this.setState({ dirtyJokes.single: singleDirtyJokes });
+  //   const doubleDirtyResponse = await fetch('URLGOESHERE');
+  //   const doubleDirtyJokes = await doubleDirtyResponse.json();
+  //   this.setState({ dirtyJokes.double: doubleDirtyJokes });
+  //
+  // }
+
+  addNewCleanSingleJoke = cleanSingleJoke => {
+    const { single } = this.state.cleanJokes;
+    const newCleanSingleJoke = {...cleanSingleJoke, id: Date.now() };
+    const cleanSingleJokeList = [...single, newCleanSingleJoke];
+    this.setState({
+      cleanJokes: {
+        single: cleanSingleJokeList
+      }
+    });
+  }
+
+  render() {
+    const { single } = this.state.cleanJokes;
+    return (
+      <div className="App">
+        <h1>HI</h1>
+        <br/>
+        <JokeForm addNewCleanSingleJoke={this.addNewCleanSingleJoke} />
+        <JokeList cleanSingleJokes={single} />
+      </div>
+    );
+  }
 }
+
 
 export default App;
